@@ -46,7 +46,7 @@
           },
 
           types: {
-            type: String,
+            type: [String, Array],
             default: 'address'
           },
 
