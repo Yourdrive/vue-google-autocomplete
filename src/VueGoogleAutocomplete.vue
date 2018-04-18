@@ -46,8 +46,8 @@
           },
 
           types: {
-            type: [String, Array],
-            default: 'address'
+            type: String,
+            default: null
           },
 
           country: {
