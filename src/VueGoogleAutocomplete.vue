@@ -130,11 +130,17 @@
               country: this.country
             };
           }
-
+          var input = document.getElementById(this.id);
           this.autocomplete = new google.maps.places.Autocomplete(
-                document.getElementById(this.id),
+                input,
                 options
             );
+
+          google.maps.event.addDomListener(input, 'keydown', function(e) { 
+            if (e.keyCode == 13) { 
+              e.preventDefault(); 
+            }
+          }); 
 
           this.autocomplete.addListener('place_changed', this.onPlaceChanged);
         },
