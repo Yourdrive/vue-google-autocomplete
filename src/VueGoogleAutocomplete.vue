@@ -8,7 +8,7 @@
         v-model="autocompleteText"
         @focus="onFocus()"
         @blur="onBlur()"
-        @change="onChange"
+        @change="onChange($event)"
         @keypress="onKeyPress"
         @keyup="onKeyUp"
     />
@@ -181,7 +181,10 @@
             /**
              * When the input got changed
              */
-            onChange() {
+            onChange(event) {
+              if (event && event.keyCode == 13 && $('.pac-container:visible').length) { 
+                event.preventDefault(); 
+              }
               this.$emit('change', this.autocompleteText);
             },
 
